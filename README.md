@@ -1,6 +1,6 @@
-# do_you_remember
+# Do You Remember
 
-A new Flutter project.
+Flutter project that will make sure you remember all of your memories!
 
 ## Getting Started
 
