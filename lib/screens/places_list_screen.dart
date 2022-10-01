@@ -48,12 +48,9 @@ class PlacesListScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return DetailsPage(lat: Places.items[i].location.latitude, long: Places.items[i].location.longitude, address: Places.items[i].location.address, date: Places.items[i].id.substring(0,10), image: Places.items[i].image, title: Places.items[i].title,);
+                      return DetailsPage(lat: Places.items[i].location.latitude, long: Places.items[i].location.longitude, address: Places.items[i].location.address, date: Places.items[i].id, image: Places.items[i].image, title: Places.items[i].title, idFromList: Places.items.indexOf(Places.items[i]),);
                     },
                   ),
-                );
-                print(
-                  '${Places.items[i].location.address} ${Places.items[i].location.longitude} ${Places.items[i].location.latitude} ${Places.items[i].id.substring(0,10)} ${Places.items[i].image} ${Places.items[i].title}'
                 );
               },
             ),

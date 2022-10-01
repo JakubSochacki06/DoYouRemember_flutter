@@ -21,6 +21,7 @@ class _LocationInputState extends State<LocationInput> {
   bool confidenceVisible = false;
 
   Future<void> _getCurrentUserLocation() async {
+    bool confidenceVisible = false;
     final locData = await Location().getLocation();
     setState(() {
       _previewImageUrl =

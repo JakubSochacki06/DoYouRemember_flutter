@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:do_you_remember/models/place.dart';
 import 'dart:io';
 import 'package:do_you_remember/helpers/db_helper.dart';
+import 'dart:developer';
 
 class Places extends ChangeNotifier {
   List<Place> _items = [];
@@ -35,6 +36,12 @@ class Places extends ChangeNotifier {
       },
     );
   }
+
+  void deleteMemory(int index) async{
+    _items = _items..removeAt(index);
+    notifyListeners();
+  }
+
   Future<void> fetchAndSetPlaces() async{
     final datalist = await DBHelper.getData('user_places');
     _items = datalist.map((item) => Place(id: item['id'], title: item['title'], image: File(item['image']), location: PlaceLocation(address: item['address'], longitude:item['longitude'], latitude: item['latitude']) ),).toList();
